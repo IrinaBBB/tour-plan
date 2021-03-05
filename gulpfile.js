@@ -34,11 +34,9 @@ function scssTask() {
             suffix: ".min"
         }))
         .pipe(autoprefixer())
-        .pipe(cleanCSS({
-            compatibility: 'ie8'
-        }))
+        .pipe(cleanCSS({cascade: false})
         .pipe(sourcemaps.write())
-        .pipe(dest('./css'));
+        .pipe(dest('./css')));
 }
 
 function browsersyncReload(cb) {
